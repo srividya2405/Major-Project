@@ -11,3 +11,4 @@ plotly
 networkx
 requests
 python-multipart
+pyvis
