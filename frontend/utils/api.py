@@ -76,18 +76,11 @@ def get_high_risk():
 
 def predict_transaction(data):
 
-    return {
+    # Import only when prediction is requested.
+    # This loads the trained Isolation Forest,
+    # Autoencoder, scaler and encoders.
+    from backend.services.prediction_service import (
+        predict_transaction as run_model_prediction
+    )
 
-        "Risk Score": 27.6,
-
-        "Risk Level": "Low",
-
-        "Reasons": [
-            "Demo mode prediction on Streamlit Cloud"
-        ],
-
-        "Recommendation": (
-            "Run locally for full FastAPI model prediction."
-        )
-
-    }
+    return run_model_prediction(data)
