@@ -65,17 +65,23 @@ def show_network_graph():
     total_suspicious = len(suspicious_df)
 
     high_count = len(
-        suspicious_df[suspicious_df["Risk Level"] == "High"]
+        suspicious_df[
+            suspicious_df["Risk Level"] == "High"
+        ]
     )
 
     medium_count = len(
-        suspicious_df[suspicious_df["Risk Level"] == "Medium"]
+        suspicious_df[
+            suspicious_df["Risk Level"] == "Medium"
+        ]
     )
 
     suspicious_banks = set(
         suspicious_df["From Bank"].astype(str)
     ).union(
-        set(suspicious_df["To Bank"].astype(str))
+        set(
+            suspicious_df["To Bank"].astype(str)
+        )
     )
 
     c1, c2, c3, c4 = st.columns(4)
@@ -185,9 +191,9 @@ def show_network_graph():
     html_content = net.generate_html()
 
     st.iframe(
-        html=html_content,
-        height=760,
-        scrolling=True
+        html_content,
+        width="stretch",
+        height=760
     )
 
     st.info(
