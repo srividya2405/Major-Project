@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import streamlit.components.v1 as components
 
 from pyvis.network import Network
 
@@ -183,16 +182,10 @@ def show_network_graph():
             )
         )
 
-    graph_path = "frontend/views/fraud_graph.html"
+    html_content = net.generate_html()
 
-    net.save_graph(graph_path)
-
-    with open(graph_path, "r", encoding="utf-8") as file:
-
-        html_content = file.read()
-
-    components.html(
-        html_content,
+    st.iframe(
+        html=html_content,
         height=760,
         scrolling=True
     )
