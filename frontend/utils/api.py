@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-DATA_PATH = "dataset/processed/predicted_transactions.csv"
+DATA_PATH = "dataset/processed/predicted_transactions.csv.gz"
 
 
 def get_data():
